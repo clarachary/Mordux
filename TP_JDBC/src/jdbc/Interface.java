@@ -5,6 +5,10 @@
  */
 package jdbc;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 /**
  *
  * @author truil
@@ -53,20 +57,30 @@ public class Interface extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-        SQL Mordux;
+       SQL Mordux;
         Mordux = new SQL("20202021_s2_vs1_tp1_mordux");
-        if(evt.getKeyCode()==37){
-            Mordux.setx("Nathan", Mordux.getx("Nathan")-10);
-            Mordux.Affiche("joueur");}
-        if(evt.getKeyCode()==38){
-            Mordux.sety("Nathan", Mordux.gety("Nathan")-10);
-            Mordux.Affiche("joueur");}
-        if(evt.getKeyCode()==39){
-            Mordux.setx("Nathan", Mordux.getx("Nathan")+10);
-            Mordux.Affiche("joueur");}
-        if(evt.getKeyCode()==40){
-            Mordux.sety("Nathan", Mordux.gety("Nathan")+10);
-            Mordux.Affiche("joueur");}  
+        try {
+
+            Connection connexion = DriverManager.getConnection("jdbc:mysql://nemrod.ens2m.fr:3306/20202021_s2_vs1_tp1_mordux?serverTimezone=UTC", "frodon", "XtCQDfMaoqzTyVam");
+
+             if(evt.getKeyCode()==37){
+                    Mordux.setx("Default", Mordux.getx("Default",connexion)-32,connexion);
+                    Mordux.Affiche("joueur");}
+                if(evt.getKeyCode()==38){
+                    Mordux.sety("Default", Mordux.gety("Default",connexion)-32,connexion);
+                    Mordux.Affiche("joueur");}
+                if(evt.getKeyCode()==39){
+                    Mordux.setx("Default", Mordux.getx("Default",connexion)+32,connexion);
+                    Mordux.Affiche("joueur");}
+                if(evt.getKeyCode()==40){
+                    Mordux.sety("Default", Mordux.gety("Default",connexion)+32,connexion);
+                    Mordux.Affiche("joueur");}
+               
+            
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_formKeyPressed
 
     private void formKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyTyped
