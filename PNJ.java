@@ -9,5 +9,6 @@
  * @author kthierry
  */
 public class PNJ extends Moving_objects {
-    
+    return
+
 }
