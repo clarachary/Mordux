@@ -10,5 +10,9 @@ package jdbc;
  * @author gsemroud
  */
 public class Monstre extends Personnages {
-    
+    private 
+}
+
+public Monstre(){
+    this.
 }
