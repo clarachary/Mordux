@@ -216,7 +216,7 @@ public class SQL {
        SQL Mordux= new SQL("20202021_s2_vs1_tp1_mordux");
        Mordux.Affiche("Joueur");
        Joueur Joueur1= new Joueur(Mordux);
-       System.out.println(Mordux.getPseudo(9));
+       System.out.println(Joueur1.getXpos());
        Mordux.Affiche("Joueur");
        Mordux.EffacerJoueur("Default");
        
