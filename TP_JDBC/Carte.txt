@@ -1,0 +1,11 @@
+Carte
+C:\Users\truil\Downloads\TP_TileMapping\TP_TileMapping\src\TileMapping\images\tileSetMinecraft32x32.png
+8 8 32 32
+36 36 70 70 70 70 70 70 
+70 36 36 70 70 70 70 70 
+70 70 36 70 70 70 70 70 
+70 70 36 36 36 36 70 70 
+70 70 70 70 70 36 70 70 
+70 70 36 36 36 36 70 70 
+70 70 36 70 70 70 70 70 
+70 70 36 36 36 36 36 36 
