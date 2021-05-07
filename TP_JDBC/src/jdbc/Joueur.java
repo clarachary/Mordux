@@ -19,14 +19,16 @@ import javax.imageio.ImageIO;
  */
 public class Joueur {
     private String Pseudo;
-    private SQL Base_Donnee=new SQL("20202021_s2_vs1_tp1_mordux");
+    private SQL Base_Donnee;
     
-public Joueur(String Pseudo){
+public Joueur(String Pseudo, SQL Base_Donnee ){
     this.Pseudo=Pseudo;
+    this.Base_Donnee=Base_Donnee;
     this.Base_Donnee.AjouterJoueur(Pseudo);
 }
 
-public Joueur(){
+public Joueur(SQL Base_Donnee){
+    this.Base_Donnee=Base_Donnee;
     this.Pseudo= this.Base_Donnee.getPseudo(0);
     if(Pseudo==""){
     this.Base_Donnee.AjouterJoueur("Default");
@@ -41,11 +43,11 @@ public SQL getBase_Donnee(){
 }
 
 public int getX(Connection connexion){
-    return this.Base_Donnee.getx(this.Pseudo,connexion);
+    return this.Base_Donnee.getx(this.Pseudo);
 
 }
 public int getY(Connection connexion){
-    return this.Base_Donnee.gety(this.Pseudo,connexion);
+    return this.Base_Donnee.gety(this.Pseudo);
 
 }
 public String getSkin(){
@@ -53,11 +55,11 @@ public String getSkin(){
 
 }
 public void setX(int X,Connection connexion){
-    this.Base_Donnee.setx(this.Pseudo,X,connexion);
+    this.Base_Donnee.setx(this.Pseudo,X);
     
 }
 public void setY(int Y,Connection connexion){
-    this.Base_Donnee.sety(this.Pseudo,Y,connexion);
+    this.Base_Donnee.sety(this.Pseudo,Y);
     
 }
 public void miseAJour() {

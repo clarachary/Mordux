@@ -13,11 +13,14 @@ import java.sql.Connection;
 public class Jeu {
 
     private Carte carte;
-    private Joueur Joueur1=new Joueur();
+    SQL Base_Donnee;
+    private Joueur Joueur1;
     
      
-    public Jeu() {        
+    public Jeu(SQL Base_Donnee) {        
         this.carte = new Carte();
+        this.Base_Donnee=Base_Donnee;
+        this.Joueur1=new Joueur(Base_Donnee);
     }
 
     public void miseAJour() {

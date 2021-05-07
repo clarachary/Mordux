@@ -64,16 +64,16 @@ public class Interface extends javax.swing.JFrame {
             Connection connexion = DriverManager.getConnection("jdbc:mysql://nemrod.ens2m.fr:3306/20202021_s2_vs1_tp1_mordux?serverTimezone=UTC", "frodon", "XtCQDfMaoqzTyVam");
 
              if(evt.getKeyCode()==37){
-                    Mordux.setx("Default", Mordux.getx("Default",connexion)-32,connexion);
+                    Mordux.setx("Default", Mordux.getx("Default")-32);
                     Mordux.Affiche("joueur");}
                 if(evt.getKeyCode()==38){
-                    Mordux.sety("Default", Mordux.gety("Default",connexion)-32,connexion);
+                    Mordux.sety("Default", Mordux.gety("Default")-32);
                     Mordux.Affiche("joueur");}
                 if(evt.getKeyCode()==39){
-                    Mordux.setx("Default", Mordux.getx("Default",connexion)+32,connexion);
+                    Mordux.setx("Default", Mordux.getx("Default")+32);
                     Mordux.Affiche("joueur");}
                 if(evt.getKeyCode()==40){
-                    Mordux.sety("Default", Mordux.gety("Default",connexion)+32,connexion);
+                    Mordux.sety("Default", Mordux.gety("Default")+32);
                     Mordux.Affiche("joueur");}
                
             
