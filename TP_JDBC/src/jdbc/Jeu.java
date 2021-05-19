@@ -29,7 +29,7 @@ public class Jeu {
 
     public void rendu(Graphics2D contexte, Connection connexion) throws IOException {
         this.carte.rendu(contexte,"Carte");
-        this.Joueur1.rendu(contexte,connexion);
+        this.Joueur1.rendu(contexte);
     }
 
 }
