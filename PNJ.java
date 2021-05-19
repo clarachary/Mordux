@@ -8,7 +8,7 @@
  *
  * @author kthierry
  */
-public class PNJ extends Moving_objects {
-    return
+public class PNJ extends Personnages {
+    private 
 
 }

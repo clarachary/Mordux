@@ -26,6 +26,7 @@ public class FenetreDeJeuGUI extends javax.swing.JFrame implements ActionListene
     private Graphics2D contexteBuffer;
     private Jeu jeu;
     private Timer timer;
+    private SQL Mordux= new SQL("20202021_s2_vs1_tp1_mordux");
 
     /**
      * Creates new form NewJFrame
@@ -39,7 +40,7 @@ public class FenetreDeJeuGUI extends javax.swing.JFrame implements ActionListene
         this.contexteBuffer = this.buffer.createGraphics();
 
         // Creation du jeu
-        this.jeu = new Jeu();
+        this.jeu = new Jeu(Mordux);
 
         // Creation du Timer qui appelle this.actionPerformed() tous les 40 ms
         this.timer = new Timer(20, this);
@@ -125,16 +126,16 @@ public class FenetreDeJeuGUI extends javax.swing.JFrame implements ActionListene
             Connection connexion = DriverManager.getConnection("jdbc:mysql://nemrod.ens2m.fr:3306/20202021_s2_vs1_tp1_mordux?serverTimezone=UTC", "frodon", "XtCQDfMaoqzTyVam");
 
              if(evt.getKeyCode()==37){
-                    Mordux.setx("Default", Mordux.getx("Default",connexion)-32,connexion);
+                    Mordux.setx("Default", Mordux.getx("Default")-32);
                     Mordux.Affiche("joueur");}
                 if(evt.getKeyCode()==38){
-                    Mordux.sety("Default", Mordux.gety("Default",connexion)-32,connexion);
+                    Mordux.sety("Default", Mordux.gety("Default")-32);
                     Mordux.Affiche("joueur");}
                 if(evt.getKeyCode()==39){
-                    Mordux.setx("Default", Mordux.getx("Default",connexion)+32,connexion);
+                    Mordux.setx("Default", Mordux.getx("Default")+32);
                     Mordux.Affiche("joueur");}
                 if(evt.getKeyCode()==40){
-                    Mordux.sety("Default", Mordux.gety("Default",connexion)+32,connexion);
+                    Mordux.sety("Default", Mordux.gety("Default")+32);
                     Mordux.Affiche("joueur");}
                
             

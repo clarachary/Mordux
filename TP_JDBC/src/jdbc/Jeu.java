@@ -13,11 +13,14 @@ import java.sql.Connection;
 public class Jeu {
 
     private Carte carte;
-    private Joueur Joueur1=new Joueur("Nathan");
-    private Joueur Joueur2=new Joueur("Enora");
+    SQL Base_Donnee;
+    private Personnage Joueur1;
+    
      
-    public Jeu() {        
+    public Jeu(SQL Base_Donnee) {        
         this.carte = new Carte();
+        this.Base_Donnee=Base_Donnee;
+        this.Joueur1=new Personnage(Base_Donnee);
     }
 
     public void miseAJour() {
@@ -25,9 +28,8 @@ public class Jeu {
     }
 
     public void rendu(Graphics2D contexte, Connection connexion) throws IOException {
-        this.carte.rendu(contexte,"Carte3");
-        this.Joueur1.rendu(contexte,connexion);
-        
+        this.carte.rendu(contexte,"Carte");
+        this.Joueur1.rendu(contexte);
     }
 
 }

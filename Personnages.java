@@ -6,19 +6,17 @@ import java.util.Vector;
  *
  * @author kthierry
  */
-public class Moving_objects {
+public class Personnages {
     //Atributs de Moving_objects
     private int xpos; 
     private int ypos;
-    private double velocity;
     private String skin;
     private String pseudo;
     private int pv;
 
-    public Moving_objects(int xpos, int ypos, double velocity, String skin, String pseudo, int pv) {
+    public Personnages(int xpos, int ypos, double velocity, String skin, String pseudo, int pv) {
         this.xpos = xpos;
         this.ypos = ypos;
-        this.velocity = velocity;
         this.skin = skin;
         this.pseudo = pseudo;
         this.pv = pv;
@@ -32,9 +30,6 @@ public class Moving_objects {
         return ypos;
     }
 
-    public double getVelocity() {
-        return velocity;
-    }
 
     public String getSkin() {
         return skin;

@@ -17,20 +17,32 @@ import javax.imageio.ImageIO;
  *
  * @author truil
  */
-public class Joueur {
+public class Personnage {
     private String Pseudo;
-    private SQL Base_Donnee=new SQL("20202021_s2_vs1_tp1_mordux");
+    private SQL Base_Donnee;
     
-public Joueur(String Pseudo){
+public Personnage(String Pseudo, SQL Base_Donnee ){
     this.Pseudo=Pseudo;
+    this.Base_Donnee=Base_Donnee;
     this.Base_Donnee.AjouterJoueur(Pseudo);
 }
 
-public Joueur(){
+public Personnage(SQL Base_Donnee,String type){
+    if(type=="Joueur"){
+    this.Base_Donnee=Base_Donnee;
     this.Pseudo= this.Base_Donnee.getPseudo(0);
     if(Pseudo==""){
     this.Base_Donnee.AjouterJoueur("Default");
     }
+    }
+    if(type=="Monstre"){
+    this.Base_Donnee=Base_Donnee;
+    this.Pseudo= this.Base_Donnee.getPseudo(0);
+    if(Pseudo==""){
+    this.Base_Donnee.AjouterMonstre("Default");
+    }
+    }
+    
 }
 
 public String getPseudo(){
@@ -40,12 +52,13 @@ public SQL getBase_Donnee(){
     return this.Base_Donnee;
 }
 
-public int getX(Connection connexion){
-    return this.Base_Donnee.getx(this.Pseudo,connexion);
+public int getX(){
+    return this.Base_Donnee.getx(this.Pseudo);
 
 }
-public int getY(Connection connexion){
-    return this.Base_Donnee.gety(this.Pseudo,connexion);
+
+public int getY(){
+    return this.Base_Donnee.gety(this.Pseudo);
 
 }
 public String getSkin(){
@@ -53,20 +66,20 @@ public String getSkin(){
 
 }
 public void setX(int X,Connection connexion){
-    this.Base_Donnee.setx(this.Pseudo,X,connexion);
+    this.Base_Donnee.setx(this.Pseudo,X);
     
 }
 public void setY(int Y,Connection connexion){
-    this.Base_Donnee.sety(this.Pseudo,Y,connexion);
+    this.Base_Donnee.sety(this.Pseudo,Y);
     
 }
 public void miseAJour() {
 
     }
-public void rendu(Graphics2D contexte,Connection connexion) {
+public void rendu(Graphics2D contexte) {
         try {
             BufferedImage Skin = ImageIO.read(getClass().getResource("images/"+this.Base_Donnee.getSkin(Pseudo)+".png"));
-            contexte.drawImage(Skin, this.getX( connexion), this.getY(connexion), null);
+            contexte.drawImage(Skin, this.getX( ), this.getY(), null);
         } catch (IOException ex) {
             Logger.getLogger(Carte.class.getName()).log(Level.SEVERE, null, ex);
         }

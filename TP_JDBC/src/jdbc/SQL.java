@@ -20,11 +20,21 @@ public class SQL {
 
     String Nomdelabasededonnées;
     
+    Connection connexion ;
+    
+    
     public SQL(String Nom){
-        this.Nomdelabasededonnées=Nom;}
+        this.Nomdelabasededonnées=Nom;
+        try {
+           this.connexion = DriverManager.getConnection("jdbc:mysql://nemrod.ens2m.fr:3306/"+this.Nomdelabasededonnées+"?serverTimezone=UTC", "frodon", "XtCQDfMaoqzTyVam");
+            } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        }
     
     
-    public int getx(String NomJoueur,Connection connexion){
+    
+    public int getx(String NomJoueur){
         int abscisse;
         abscisse=0;
         try {
@@ -50,7 +60,7 @@ public class SQL {
         Skin="";
         try {
 
-            Connection connexion = DriverManager.getConnection("jdbc:mysql://nemrod.ens2m.fr:3306/"+this.Nomdelabasededonnées+"?serverTimezone=UTC", "frodon", "XtCQDfMaoqzTyVam");
+            
 
             PreparedStatement requete = connexion.prepareStatement("SELECT skin  FROM joueur WHERE pseudo = ? ;");
             requete.setString(1, NomJoueur);
@@ -62,7 +72,7 @@ public class SQL {
             }
 
             requete.close();
-            connexion.close();
+           
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -74,7 +84,7 @@ public class SQL {
         int i=0;
         try {
 
-            Connection connexion = DriverManager.getConnection("jdbc:mysql://nemrod.ens2m.fr:3306/"+this.Nomdelabasededonnées+"?serverTimezone=UTC", "frodon", "XtCQDfMaoqzTyVam");
+           
 
             PreparedStatement requete = connexion.prepareStatement("SELECT pseudo  FROM joueur");
             ResultSet resultat = requete.executeQuery();
@@ -87,13 +97,12 @@ public class SQL {
             }
 
             requete.close();
-            connexion.close();
 
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return Pseudo;}
-    public void setx(String NomJoueur, int abcsisse,Connection connexion){
+    public void setx(String NomJoueur, int abcsisse){
     
         try {
 
@@ -112,7 +121,7 @@ public class SQL {
         }
     
     
-    public int gety(String NomJoueur,Connection connexion){
+    public int gety(String NomJoueur){
         int ordonnee;
         ordonnee=0;
         try {
@@ -135,7 +144,7 @@ public class SQL {
         }
         return ordonnee;}
     
-    public void sety (String NomJoueur, int ordonnee,Connection connexion){
+    public void sety (String NomJoueur, int ordonnee){
     
         try {
 
@@ -155,7 +164,7 @@ public class SQL {
     public void Affiche(String NameTable){
         try {
 
-            Connection connexion = DriverManager.getConnection("jdbc:mysql://nemrod.ens2m.fr:3306/"+this.Nomdelabasededonnées+"?serverTimezone=UTC", "frodon", "XtCQDfMaoqzTyVam");
+            
 
             PreparedStatement requete = connexion.prepareStatement("SELECT * FROM "+NameTable+";");
             
@@ -163,7 +172,6 @@ public class SQL {
             OutilsJDBC.afficherResultSet(resultat);
 
             requete.close();
-            connexion.close();
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -172,14 +180,13 @@ public class SQL {
     public void EffacerJoueur(String NomduJoueur){
         try {
 
-            Connection connexion = DriverManager.getConnection("jdbc:mysql://nemrod.ens2m.fr:3306/"+this.Nomdelabasededonnées+"?serverTimezone=UTC", "frodon", "XtCQDfMaoqzTyVam");
+            
 
             PreparedStatement requete = connexion.prepareStatement("DELETE FROM joueur WHERE pseudo = ?");
             requete.setString(1, NomduJoueur);
             requete.executeUpdate();
 
             requete.close();
-            connexion.close();
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -188,7 +195,7 @@ public class SQL {
     
     public void AjouterJoueur(String NomJoueur){
         try {
-            Connection connexion = DriverManager.getConnection("jdbc:mysql://nemrod.ens2m.fr:3306/"+this.Nomdelabasededonnées+"?serverTimezone=UTC", "frodon", "XtCQDfMaoqzTyVam");
+            
             PreparedStatement requete = connexion.prepareStatement("INSERT INTO joueur VALUES (?,?,?,?,?)");
             requete.setString(1, NomJoueur);
             requete.setInt(2, 0);
@@ -199,7 +206,6 @@ public class SQL {
             requete.executeUpdate();
 
             requete.close();
-            connexion.close();
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -209,8 +215,8 @@ public class SQL {
     public static void main(String[] args) {
        SQL Mordux= new SQL("20202021_s2_vs1_tp1_mordux");
        Mordux.Affiche("Joueur");
-       Joueur Joueur1= new Joueur();
-       System.out.println(Mordux.getPseudo(9));
+       Personnage Joueur1= new Personnage(Mordux);
+       System.out.println(Joueur1.getX());
        Mordux.Affiche("Joueur");
        Mordux.AjouterJoueur("Default");
      

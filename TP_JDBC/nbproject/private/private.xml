@@ -3,15 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< Updated upstream
             <file>file:/Z:/Mes%20documents/GitHub/Mordux/TP_JDBC/src/jdbc/FenetreDeJeuGUI.java</file>
             <file>file:/Z:/Mes%20documents/GitHub/Mordux/TP_JDBC/src/jdbc/Interface.java</file>
-            <file>file:/Z:/Mes%20documents/GitHub/Mordux/TP_JDBC/src/jdbc/Jeu.java</file>
-            <file>file:/Z:/Mes%20documents/GitHub/Mordux/TP_JDBC/src/jdbc/Obstacle.java</file>
             <file>file:/Z:/Mes%20documents/GitHub/Mordux/TP_JDBC/src/jdbc/SQL.java</file>
-            <file>file:/Z:/Mes%20documents/GitHub/Mordux/TP_JDBC/src/jdbc/FenetreDeJeu.java</file>
-            <file>file:/Z:/Mes%20documents/GitHub/Mordux/TP_JDBC/src/jdbc/images/tileSetMinecraft32x32.png</file>
-            <file>file:/Z:/Mes%20documents/GitHub/Mordux/TP_JDBC/src/jdbc/Joueur.java</file>
+            <file>file:/Z:/Mes%20documents/GitHub/Mordux/TP_JDBC/src/jdbc/Personnages.java</file>
             <file>file:/Z:/Mes%20documents/GitHub/Mordux/TP_JDBC/src/jdbc/Carte.java</file>
+=======
+            <file>file:/C:/Users/truil/Desktop/Projet%20info/TP_JDBC/src/jdbc/Jeu.java</file>
+>>>>>>> Stashed changes
         </group>
     </open-files>
 </project-private>

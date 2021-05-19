@@ -25,6 +25,7 @@ public class FenetreDeJeu extends JFrame implements ActionListener {
     private Jeu jeu;
     private Timer timer;
     private JLabel jLabel1;
+    private SQL Mordux= new SQL("20202021_s2_vs1_tp1_mordux");
 
     public FenetreDeJeu() {
         // initialisation de la fenetre
@@ -42,7 +43,7 @@ public class FenetreDeJeu extends JFrame implements ActionListener {
         this.contexteBuffer = this.buffer.createGraphics();
 
         // Creation du jeu
-        this.jeu = new Jeu();
+        this.jeu = new Jeu(Mordux);
 
         // Creation du Timer qui appelle this.actionPerformed() tous les 40 ms
         this.timer = new Timer(40, this);
