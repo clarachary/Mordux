@@ -27,24 +27,16 @@ public Personnage(String Pseudo, SQL Base_Donnee ){
     this.Base_Donnee.AjouterJoueur(Pseudo);
 }
 
-public Personnage(SQL Base_Donnee,String type){
-    if(type=="Joueur"){
+public Personnage(SQL Base_Donnee){
+ 
     this.Base_Donnee=Base_Donnee;
     this.Pseudo= this.Base_Donnee.getPseudo(0);
     if(Pseudo==""){
     this.Base_Donnee.AjouterJoueur("Default");
     }
-    }
-    if(type=="Monstre"){
-    this.Base_Donnee=Base_Donnee;
-    this.Pseudo= this.Base_Donnee.getPseudo(0);
-    if(Pseudo==""){
-    this.Base_Donnee.AjouterMonstre("Default");
-    }
+   
     }
     
-}
-
 public String getPseudo(){
     return this.Pseudo;
 }

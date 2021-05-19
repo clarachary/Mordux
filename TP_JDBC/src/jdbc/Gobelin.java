@@ -16,5 +16,7 @@ public Gobelin(){
     this.skin="Gobelin";
     this.x=0;
     this.y=0;
+    
+    
 }
 }
