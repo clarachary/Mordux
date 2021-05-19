@@ -212,7 +212,9 @@ public class SQL {
        Joueur Joueur1= new Joueur();
        System.out.println(Mordux.getPseudo(9));
        Mordux.Affiche("Joueur");
-       Mordux.EffacerJoueur("Default");
+       Mordux.AjouterJoueur("Default");
+     
+       
        
        
 

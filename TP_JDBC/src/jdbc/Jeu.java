@@ -13,8 +13,8 @@ import java.sql.Connection;
 public class Jeu {
 
     private Carte carte;
-    private Joueur Joueur1=new Joueur();
-    
+    private Joueur Joueur1=new Joueur("Nathan");
+    private Joueur Joueur2=new Joueur("Enora");
      
     public Jeu() {        
         this.carte = new Carte();
