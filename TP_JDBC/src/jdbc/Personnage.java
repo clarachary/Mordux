@@ -17,24 +17,32 @@ import javax.imageio.ImageIO;
  *
  * @author truil
  */
-public class Joueur extends Personnages {
+public class Personnage {
     private String Pseudo;
     private SQL Base_Donnee;
     
-public Joueur(String Pseudo, SQL Base_Donnee ){
+public Personnage(String Pseudo, SQL Base_Donnee ){
     this.Pseudo=Pseudo;
     this.Base_Donnee=Base_Donnee;
     this.Base_Donnee.AjouterJoueur(Pseudo);
 }
 
-public Joueur(SQL Base_Donnee){
-    
-    this.setXpos(this.Base_Donnee.getx(this.Pseudo));
+public Personnage(SQL Base_Donnee,String type){
+    if(type=="Joueur"){
     this.Base_Donnee=Base_Donnee;
     this.Pseudo= this.Base_Donnee.getPseudo(0);
     if(Pseudo==""){
     this.Base_Donnee.AjouterJoueur("Default");
     }
+    }
+    if(type=="Monstre"){
+    this.Base_Donnee=Base_Donnee;
+    this.Pseudo= this.Base_Donnee.getPseudo(0);
+    if(Pseudo==""){
+    this.Base_Donnee.AjouterMonstre("Default");
+    }
+    }
+    
 }
 
 public String getPseudo(){
@@ -44,8 +52,12 @@ public SQL getBase_Donnee(){
     return this.Base_Donnee;
 }
 
+public int getX(){
+    return this.Base_Donnee.getx(this.Pseudo);
 
-public int getY(Connection connexion){
+}
+
+public int getY(){
     return this.Base_Donnee.gety(this.Pseudo);
 
 }
@@ -64,10 +76,10 @@ public void setY(int Y,Connection connexion){
 public void miseAJour() {
 
     }
-public void rendu(Graphics2D contexte,Connection connexion) {
+public void rendu(Graphics2D contexte) {
         try {
             BufferedImage Skin = ImageIO.read(getClass().getResource("images/"+this.Base_Donnee.getSkin(Pseudo)+".png"));
-            contexte.drawImage(Skin, this.getXpos( ), this.getY(connexion), null);
+            contexte.drawImage(Skin, this.getX( ), this.getY(), null);
         } catch (IOException ex) {
             Logger.getLogger(Carte.class.getName()).log(Level.SEVERE, null, ex);
         }
