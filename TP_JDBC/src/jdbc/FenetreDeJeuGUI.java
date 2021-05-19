@@ -49,25 +49,17 @@ public class FenetreDeJeuGUI extends javax.swing.JFrame implements ActionListene
 
     // Methode appelee par le timer et qui contient la boucle de jeu
     public void actionPerformed(ActionEvent e) {
-        try {
-
-            Connection connexion = DriverManager.getConnection("jdbc:mysql://nemrod.ens2m.fr:3306/20202021_s2_vs1_tp1_mordux?serverTimezone=UTC", "frodon", "XtCQDfMaoqzTyVam");
+        
 
         this.jeu.miseAJour();
-         
-           
         try {
-            this.jeu.rendu(contexteBuffer,connexion);
+            this.jeu.rendu(contexteBuffer);
         } catch (IOException ex) {
             Logger.getLogger(FenetreDeJeuGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.jLabel1.repaint();
         
-        connexion.close();
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
+        
     }
 
     /**
@@ -119,12 +111,7 @@ public class FenetreDeJeuGUI extends javax.swing.JFrame implements ActionListene
     }//GEN-LAST:event_formKeyPressed
 
     private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased                              
-        SQL Mordux;
-        Mordux = new SQL("20202021_s2_vs1_tp1_mordux");
-        try {
-
-            Connection connexion = DriverManager.getConnection("jdbc:mysql://nemrod.ens2m.fr:3306/20202021_s2_vs1_tp1_mordux?serverTimezone=UTC", "frodon", "XtCQDfMaoqzTyVam");
-
+        
              if(evt.getKeyCode()==37){
                     Mordux.setx("Default", Mordux.getx("Default")-32);
                     Mordux.Affiche("joueur");}
@@ -140,9 +127,7 @@ public class FenetreDeJeuGUI extends javax.swing.JFrame implements ActionListene
                
             
 
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
+        
     }//GEN-LAST:event_formKeyReleased
 
     /**
