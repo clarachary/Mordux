@@ -54,7 +54,7 @@ public class FenetreDeJeu extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e,Connection connexion) {
         this.jeu.miseAJour();
         try {
-            this.jeu.rendu(contexteBuffer,connexion);
+            this.jeu.rendu(contexteBuffer);
         } catch (IOException ex) {
             Logger.getLogger(FenetreDeJeu.class.getName()).log(Level.SEVERE, null, ex);
         }

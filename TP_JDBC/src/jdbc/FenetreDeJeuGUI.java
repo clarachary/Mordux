@@ -43,7 +43,7 @@ public class FenetreDeJeuGUI extends javax.swing.JFrame implements ActionListene
         this.jeu = new Jeu(Mordux);
 
         // Creation du Timer qui appelle this.actionPerformed() tous les 40 ms
-        this.timer = new Timer(20, this);
+        this.timer = new Timer(1, this);
         this.timer.start();
     }
 
