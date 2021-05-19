@@ -86,13 +86,8 @@ public class Carte {
 
         } catch (IOException e) {
             e.printStackTrace();
-        }
-
-        
-        
-                
-        
-      
+        }    
     }
+
 
 }

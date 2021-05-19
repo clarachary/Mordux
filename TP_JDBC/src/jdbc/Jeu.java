@@ -25,8 +25,9 @@ public class Jeu {
     }
 
     public void rendu(Graphics2D contexte, Connection connexion) throws IOException {
-        this.carte.rendu(contexte,"Carte");
+        this.carte.rendu(contexte,"Carte3");
         this.Joueur1.rendu(contexte,connexion);
+        
     }
 
 }
