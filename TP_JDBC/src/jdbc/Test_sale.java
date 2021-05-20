@@ -15,7 +15,7 @@ public class Test_sale {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       Carte OK= new Carte("Carte3");
+
        
     }
     
