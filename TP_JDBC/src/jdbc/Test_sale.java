@@ -16,7 +16,13 @@ public class Test_sale {
      */
     public static void main(String[] args) {
 
-       
+       Mordux_GUI Mordux=new Mordux_GUI();
+                Mordux.pack();
+                Mordux.setDefaultLookAndFeelDecorated(true);
+                Mordux.setExtendedState(Mordux.MAXIMIZED_BOTH);
+                
+                Mordux.setVisible(true);
+                
     }
     
 }
