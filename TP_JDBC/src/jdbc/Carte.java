@@ -58,8 +58,8 @@ public class Carte {
 
                     for (int x = 0; x <nc; x++) {
                         Map[y][x]=Integer.parseInt(ligne[x]);
-                        System.out.println("ligne["+y+"] =" + ligne[x]+" Map["+x+"]["+y+"]="+Map[y][x]);
-                        System.out.println(Map[y][x]);
+                        //System.out.println("ligne["+y+"] =" + ligne[x]+" Map["+x+"]["+y+"]="+Map[y][x]);
+                        //System.out.println(Map[y][x]);
                     }
                 }
                 
@@ -77,8 +77,8 @@ public class Carte {
                 try {
                         BufferedImage tileset = ImageIO.read(getClass().getResource("images/tileSetMinecraft32x32.png"));
                         BufferedImage uneTuile = tileset.getSubimage(c*32, l*32, tailleTuile, tailleTuile);
-                        System.out.println(l);
-                        System.out.println(c);
+                        //System.out.println(l);
+                        //System.out.println(c);
                         ListeTuile[l*16+c]=uneTuile;
                         
                         } catch (IOException ex) {
@@ -91,8 +91,8 @@ public class Carte {
         
         
     
-      System.out.println(Map[2].length);
-      System.out.println(ListeTuile);
+      //System.out.println(Map[2].length);
+      //System.out.println(ListeTuile);
     }
     
     
