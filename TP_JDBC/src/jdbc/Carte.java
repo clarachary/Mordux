@@ -36,31 +36,33 @@ public class Carte {
     }
     
     public Carte(String nomFichier) {
-        int i = 0;
-        int a=0;
-        Integer[][] Plan= new Integer[10000][10000];
         this.ListeTuile= new BufferedImage[176];
-        
-        
-        
+
         try {
             BufferedReader fichier = new BufferedReader(new FileReader(nomFichier + ".txt"));
 
             while (fichier.ready()) {
+                String ligne_info;
                 String ligne_texte;
-                ligne_texte = fichier.readLine();
-                if(i>2){
+                fichier.readLine();
+                fichier.readLine();
+                ligne_info= fichier.readLine();
+                String nc_string[] = ligne_info.split(" ");
+                int nc = Integer.parseInt(nc_string[0]);
+                int nl = Integer.parseInt(nc_string[1]);
+                this.Map=new Integer[nl][nc];
                 
-                
-                
-                String ligne[]= ligne_texte.split(" ");
-                a=ligne.length;
-                for (int j = 0; j <a; j++) {
-                    Plan[i-3][j]=Integer.parseInt(ligne[j]);
-                    System.out.println(Plan[i-3][j]);
+                for(int y=0; y<nl;y++){
+                    ligne_texte = fichier.readLine();
+                    String ligne[]= ligne_texte.split(" ");
+
+                    for (int x = 0; x <nc; x++) {
+                        Map[y][x]=Integer.parseInt(ligne[x]);
+                        System.out.println("ligne["+y+"] =" + ligne[x]+" Map["+x+"]["+y+"]="+Map[y][x]);
+                        System.out.println(Map[y][x]);
                     }
                 }
-                i++;
+                
             }
             fichier.close();
 
@@ -87,12 +89,7 @@ public class Carte {
         
         
         
-        this.Map=new Integer[i-3][a];
-        for (int l = 0; l < i-3; l++) {
-            for (int c = 0; c < a; c++) {
-                Map[l][c]=Plan[l][c];
-            }            
-        }
+        
     
       System.out.println(Map[2].length);
       System.out.println(ListeTuile);
@@ -114,7 +111,7 @@ public class Carte {
     } 
     
     
-    public void rendu(Graphics2D contexte, String nomFichier) throws FileNotFoundException {
+   /* public void rendu(Graphics2D contexte, String nomFichier) throws FileNotFoundException {
         int i = 0;
         Integer[][] map;
         map = new Integer[1][1];
@@ -153,7 +150,7 @@ public class Carte {
         } catch (IOException e) {
             e.printStackTrace();
         }    
-    }
+    }*/
 
 
 }

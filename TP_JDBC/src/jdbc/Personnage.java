@@ -28,16 +28,15 @@ public Personnage(String Pseudo, SQL Base_Donnee ){
 }
 
 public Personnage(SQL Base_Donnee){
+ 
     this.Base_Donnee=Base_Donnee;
     this.Pseudo= this.Base_Donnee.getPseudo(0);
     if(Pseudo==""){
     this.Base_Donnee.AjouterJoueur("Default");
     }
+   
     }
     
-    
-
-
 public String getPseudo(){
     return this.Pseudo;
 }

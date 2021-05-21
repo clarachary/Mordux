@@ -5,41 +5,30 @@
  */
 package jdbc;
 
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-
 /**
  *
- * @author gsemroud
+ * @author kthierry
  */
-public class Monstre {
-    private int xpos;
-    private int ypos;
-    private int P_attack;
-    private int Pv;
-    private int Speed;
-    private int Vision; 
+public class Monstre extends Personnage {
+    int x;
+    int y;
+    String skin;
+    String attack;
+    
+public Monstre() {
+    this.x=0;
+    this.y=0;
+    this.skin="Default";
+    this.attack="Default";
+            
 
+}  
+public Monstre(int x, int y, String skin, String attack) {
+    this.x=x;
+    this.y=y;
+    this.skin=skin;
+    this.attack=attack;
+            
 
-public Monstre(int xpos, int ypos, int P_attack, int Pv, int Speed, int Vision) {
-        this.xpos=xpos;
-        this.ypos=ypos;
-        this.P_attack = P_attack;
-        this.Pv = Pv;
-        this.Speed = Speed;
-        this.Vision=Vision;
-        this.xpos = xpos;
-        this.ypos = ypos;
-    }
-
-    public void miseAJour() {
-        while ((Joueur.xpos-this.xpos)^2+(Joueur.ypos-this.ypos)^2 <= this.Vision) {
-            this.xpos= ;
-        }
-    }
+}  
 }
