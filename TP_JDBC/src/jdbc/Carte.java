@@ -36,13 +36,8 @@ public class Carte {
     }
     
     public Carte(String nomFichier) {
-        //int i = 0;
-        int a=0;
-        int lignei=0;
         this.ListeTuile= new BufferedImage[176];
-        
-        
-        
+
         try {
             BufferedReader fichier = new BufferedReader(new FileReader(nomFichier + ".txt"));
 
