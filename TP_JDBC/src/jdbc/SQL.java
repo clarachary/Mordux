@@ -212,6 +212,24 @@ public class SQL {
         }
     }
     
+        public void AjouterMonstre(String NomMonstre){
+        try {
+            
+            PreparedStatement requete = connexion.prepareStatement("INSERT INTO monstre VALUES (?,?,?,?,?)");
+            requete.setString(1, NomMonstre);
+            requete.setInt(2, 0);
+            requete.setInt(3, 0);
+            requete.setDouble(4, 1000);
+            requete.setString(5, "Default");   
+            System.out.println(requete);
+            requete.executeUpdate();
+
+            requete.close();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
     public static void main(String[] args) {
        SQL Mordux= new SQL("20202021_s2_vs1_tp1_mordux");
        Mordux.Affiche("Joueur");
