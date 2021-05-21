@@ -24,7 +24,7 @@ public class Monstre {
     private int Pv;
     private int Speed;
     private int Vision; 
-}
+
 
 public Monstre(int xpos, int ypos, int P_attack, int Pv, int Speed, int Vision) {
         this.xpos=xpos;
@@ -42,3 +42,4 @@ public Monstre(int xpos, int ypos, int P_attack, int Pv, int Speed, int Vision) 
             this.xpos= ;
         }
     }
+}
