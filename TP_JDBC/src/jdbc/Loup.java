@@ -6,7 +6,7 @@
 package jdbc;
 
 /**
- *
+
  * @author kthierry
  */
 public class Loup extends Monstre {

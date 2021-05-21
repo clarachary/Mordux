@@ -6,7 +6,6 @@
 package jdbc;
 
 /**
- *
  * @author kthierry
  */
 public class Squelette extends Monstre {
