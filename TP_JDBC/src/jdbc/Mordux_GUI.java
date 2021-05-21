@@ -12,7 +12,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
 /**
@@ -20,45 +23,45 @@ import javax.swing.Timer;
  *
  * @author guillaume.laurent
  */
-public class FenetreDeJeuGUI extends javax.swing.JFrame implements ActionListener {
+public class Mordux_GUI extends javax.swing.JFrame implements ActionListener {
 
     private BufferedImage buffer;
     private Graphics2D contexteBuffer;
-    private Jeu jeu;
     private Timer timer;
-    private SQL Mordux= new SQL("20202021_s2_vs1_tp1_mordux");
-
     /**
      * Creates new form NewJFrame
      */
-    public FenetreDeJeuGUI() {
+    public Mordux_GUI() {
         initComponents();
 
-        // Creation du buffer pour l'affichage du jeu et recuperation du contexte graphique
+        //Creation du buffer pour l'affichage du jeu et recuperation du contexte graphique
         this.buffer = new BufferedImage(this.jLabel1.getWidth(), this.jLabel1.getHeight(), BufferedImage.TYPE_INT_ARGB);
         jLabel1.setIcon(new ImageIcon(this.buffer));
         this.contexteBuffer = this.buffer.createGraphics();
 
-        // Creation du jeu
-        this.jeu = new Jeu(Mordux);
+        
+        //Creation du jeu
+      
 
-        // Creation du Timer qui appelle this.actionPerformed() tous les 40 ms
+        // Creation du Timer
         this.timer = new Timer(1, this);
         this.timer.start();
     }
 
     // Methode appelee par le timer et qui contient la boucle de jeu
     public void actionPerformed(ActionEvent e) {
-        
-
-        this.jeu.miseAJour();
+       
         try {
-            this.jeu.rendu(contexteBuffer);
+            BufferedImage tileset = ImageIO.read(getClass().getResource("images/Fond d'écran 5.jpg"));
+            
+            contexteBuffer.drawImage(tileset, 0, 0,this.getWidth(),this.getHeight(),null);
+                    
+            
         } catch (IOException ex) {
             Logger.getLogger(FenetreDeJeuGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.jLabel1.repaint();
-        
+         
         
     }
 
@@ -70,7 +73,12 @@ public class FenetreDeJeuGUI extends javax.swing.JFrame implements ActionListene
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+        
+        this.pack();
+        this.setDefaultLookAndFeelDecorated(true);
+        this.setExtendedState(this.MAXIMIZED_BOTH);
+        this.setVisible(true);
+        
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -84,25 +92,77 @@ public class FenetreDeJeuGUI extends javax.swing.JFrame implements ActionListene
         });
 
         jLabel1.setText("jLabel1");
-        jLabel1.setPreferredSize(new java.awt.Dimension(20*32, 15*32));
+        jLabel1.setPreferredSize(new java.awt.Dimension(10000, 10000));
+        
+        
+        jButton1 = new javax.swing.JButton();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                formKeyTyped(evt);
+            }
+        });
+
+        jButton1.setText("JOUER");
+        
+        
+        
+        
+        
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20*32, Short.MAX_VALUE))
+                    
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,layout.createSequentialGroup()  
+                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                
+                
+        
+                
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15*32, Short.MAX_VALUE))
+
+                
+                    
+                    
+                )
+        );
+        
+        javax.swing.GroupLayout jLabel1Layout = new javax.swing.GroupLayout(jLabel1);
+        jLabel1.setLayout(jLabel1Layout);
+        jLabel1Layout.setHorizontalGroup(
+            jLabel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLabel1Layout.createSequentialGroup()
+                .addGap(191, 191, 191)
+                .addComponent(jButton1)
+                .addContainerGap(247, Short.MAX_VALUE))
+        );
+        jLabel1Layout.setVerticalGroup(
+            jLabel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLabel1Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jButton1)
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
+        
+
+        
+        
+
+        
+        
+        
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -110,25 +170,17 @@ public class FenetreDeJeuGUI extends javax.swing.JFrame implements ActionListene
         
     }//GEN-LAST:event_formKeyPressed
 
-    private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased                              
+    private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased
         
-             if(evt.getKeyCode()==37){
-                    Mordux.setx("Default", Mordux.getx("Default")-32);
-                    Mordux.Affiche("joueur");}
-                if(evt.getKeyCode()==38){
-                    Mordux.sety("Default", Mordux.gety("Default")-32);
-                    Mordux.Affiche("joueur");}
-                if(evt.getKeyCode()==39){
-                    Mordux.setx("Default", Mordux.getx("Default")+32);
-                    Mordux.Affiche("joueur");}
-                if(evt.getKeyCode()==40){
-                    Mordux.sety("Default", Mordux.gety("Default")+32);
-                    Mordux.Affiche("joueur");}
-               
+   
+
             
 
         
     }//GEN-LAST:event_formKeyReleased
+    
+    private void formKeyTyped(java.awt.event.KeyEvent evt) {
+    }//GEN-FIRST:event_formKeyReleased
 
     /**
      * @param args the command line arguments
@@ -176,7 +228,7 @@ public class FenetreDeJeuGUI extends javax.swing.JFrame implements ActionListene
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                
-            new FenetreDeJeuGUI().setVisible(true);
+            new Mordux_GUI().setVisible(true);
            
             
               
@@ -186,6 +238,7 @@ public class FenetreDeJeuGUI extends javax.swing.JFrame implements ActionListene
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 
 

@@ -18,7 +18,7 @@ public class Jeu {
     
      
     public Jeu(SQL Base_Donnee) {        
-        this.carte = new Carte();
+        this.carte = new Carte("Carte");
         this.Base_Donnee=Base_Donnee;
         this.Joueur1=new Personnage(Base_Donnee);
     }
@@ -27,9 +27,11 @@ public class Jeu {
         this.Joueur1.miseAJour();
     }
 
-    public void rendu(Graphics2D contexte, Connection connexion) throws IOException {
-        this.carte.rendu(contexte,"Carte");
+    public void rendu(Graphics2D contexte) throws IOException {
+        this.carte.rendu(contexte);
         this.Joueur1.rendu(contexte);
+        
+        
     }
 
 }

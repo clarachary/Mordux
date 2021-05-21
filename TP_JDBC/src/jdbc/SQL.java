@@ -236,7 +236,9 @@ public class SQL {
        Personnage Joueur1= new Personnage(Mordux);
        System.out.println(Joueur1.getX());
        Mordux.Affiche("Joueur");
-       Mordux.EffacerJoueur("Default");
+       Mordux.AjouterJoueur("Default");
+     
+       
        
        
 
