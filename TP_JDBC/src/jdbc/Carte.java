@@ -23,15 +23,12 @@ import javax.imageio.ImageIO;
  */
 public class Carte {
 
-    private int largeur = 20;
-    private int hauteur = 15;
     private int tailleTuile = 32;
-    
     private BufferedImage[] ListeTuile;
     private Integer[][] Map;
 
     public Carte() {
-        this.Map= new Integer[20][20];
+        this.Map= new Integer[1][1];
         this.ListeTuile= new BufferedImage[166];
     }
     
@@ -91,8 +88,9 @@ public class Carte {
         
         
     
-      System.out.println(Map[2].length);
-      System.out.println(ListeTuile);
+      System.out.println("Map[2].length =" + Map[2].length);
+      System.out.println("Map.length =" + Map.length);
+      System.out.println("ListeTuile =" +ListeTuile);
     }
     
     
