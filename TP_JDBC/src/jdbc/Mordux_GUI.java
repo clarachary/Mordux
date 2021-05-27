@@ -34,6 +34,8 @@ public class Mordux_GUI extends javax.swing.JFrame implements ActionListener {
     public Mordux_GUI() {
         initComponents();
 
+        
+        
         //Creation du buffer pour l'affichage du jeu et recuperation du contexte graphique
         this.buffer = new BufferedImage(this.jLabel1.getWidth(), this.jLabel1.getHeight(), BufferedImage.TYPE_INT_ARGB);
         jLabel1.setIcon(new ImageIcon(this.buffer));
@@ -107,7 +109,13 @@ public class Mordux_GUI extends javax.swing.JFrame implements ActionListener {
             }
         });
 
-        jButton1.setText("JOUER");
+        jButton1.setPreferredSize(new java.awt.Dimension(275, 110));
+        
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jdbc/images/btn_play.png"))); // NOI18N
+        jButton1.setContentAreaFilled(false);
+        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/jdbc/images/btn_play_selected.png"))); // NOI18N
+        
+        jButton1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/jdbc/images/btn_play_selected_2.png"))); // NOI18N
         
         
         
@@ -118,7 +126,7 @@ public class Mordux_GUI extends javax.swing.JFrame implements ActionListener {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,layout.createSequentialGroup()  
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING,layout.createSequentialGroup()  
                  .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 
                 
@@ -143,17 +151,20 @@ public class Mordux_GUI extends javax.swing.JFrame implements ActionListener {
         jLabel1Layout.setHorizontalGroup(
             jLabel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLabel1Layout.createSequentialGroup()
-                .addGap(191, 191, 191)
-                .addComponent(jButton1)
-                .addContainerGap(247, Short.MAX_VALUE))
+               
+            .addGap((this.getWidth()-jButton1.getPreferredSize().width)/2)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE,javax.swing.GroupLayout.PREFERRED_SIZE)
+                
+            )
         );
         jLabel1Layout.setVerticalGroup(
             jLabel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLabel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jButton1)
-                .addContainerGap(45, Short.MAX_VALUE))
-        );
+                .addGap((this.getHeight()*50)/100-(jButton1.getPreferredSize().height/2))
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE,javax.swing.GroupLayout.PREFERRED_SIZE)
+                
+            )
+            );
 
         
 

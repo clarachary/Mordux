@@ -23,12 +23,15 @@ import javax.imageio.ImageIO;
  */
 public class Carte {
 
+    private int largeur = 20;
+    private int hauteur = 15;
     private int tailleTuile = 32;
+    
     private BufferedImage[] ListeTuile;
     private Integer[][] Map;
 
     public Carte() {
-        this.Map= new Integer[1][1];
+        this.Map= new Integer[20][20];
         this.ListeTuile= new BufferedImage[166];
     }
     
@@ -55,8 +58,8 @@ public class Carte {
 
                     for (int x = 0; x <nc; x++) {
                         Map[y][x]=Integer.parseInt(ligne[x]);
-                        System.out.println("ligne["+y+"] =" + ligne[x]+" Map["+x+"]["+y+"]="+Map[y][x]);
-                        System.out.println(Map[y][x]);
+                        //System.out.println("ligne["+y+"] =" + ligne[x]+" Map["+x+"]["+y+"]="+Map[y][x]);
+                        //System.out.println(Map[y][x]);
                     }
                 }
                 
@@ -74,8 +77,8 @@ public class Carte {
                 try {
                         BufferedImage tileset = ImageIO.read(getClass().getResource("images/tileSetMinecraft32x32.png"));
                         BufferedImage uneTuile = tileset.getSubimage(c*32, l*32, tailleTuile, tailleTuile);
-                        System.out.println(l);
-                        System.out.println(c);
+                        //System.out.println(l);
+                        //System.out.println(c);
                         ListeTuile[l*16+c]=uneTuile;
                         
                         } catch (IOException ex) {
@@ -88,9 +91,8 @@ public class Carte {
         
         
     
-      System.out.println("Map[2].length =" + Map[2].length);
-      System.out.println("Map.length =" + Map.length);
-      System.out.println("ListeTuile =" +ListeTuile);
+      //System.out.println(Map[2].length);
+      //System.out.println(ListeTuile);
     }
     
     
