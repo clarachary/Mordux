@@ -4,40 +4,38 @@
  * and open the template in the editor.
  */
 package jdbc;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 
-/**
- *
- * @author Ghani
- */
+
 
 public class Goblin extends Monstre {
-private final int Pv;
-	
-	private final int P_attack;
-	private final int Speed;
-	private final int xpos, ypos;
-	private final boolean Vision; 
-	public Goblin(String name, Sprite sprite, int xpos, int ypos, int Pv, int P_attack) {
-		super(name, sprite, xpos, ypos);
-		this.Pv = Pv;
-		this.P_attack = P_attack;
-		this.xpos = xpos;
-		this.ypos = ypos;
-                this.Sprite = Sprite;
-	}
+    
+    private final int Pv;
+    private final int attack;
+    private final int Speed;	
+    private final String skin;
+    
+	public Goblin(String sprite, int xpos, int ypos, int attack) {
+		super(name);
+		this.Pv = 200;
+		this.attack = attack;
+                this.skin = skin;
+                this.Speed = 0;
+        }
 
 	//@Override
 	//public void update(){
 		//super.update();
 	//}
 	
-	/*
-	 * Get monsters attack and players defense
-	 * Calculate damage, ensuring that it is always at least 1 no matter
-	 * how high the player's defense and pass this to the player class
-	 */
-	public void attack(Player player){
+	
+    public void attack(Personnage player){
 		int result = attack;
 		if(result <= 0){
 			result = 1;
@@ -51,37 +49,30 @@ private final int Pv;
 	 * reset to zero
 	 */
 	public void takeDamage(int damage){
-		Pv -= damage;
-		if(hp < 0){
-			Pv = 0;
+		int pv_temp = Pv;
+                pv_temp = Pv - damage;
+		if(Pv < 0){
+			pv_temp = 0;
 		}
 	}
 	
 	//Call potion object and add it's value to current hp. If current hp then
 	//exceeds max hp, it will be set to max hp
-	public void heal(Potion potion){
-		hp += potion.getHpBoost();
-		if(hp > max_hp){
-			hp = max_hp;
-		}
-	}
+	
 
 	// getters and setters
 	
-        public boolean getVision(){
-                return Vision;
-        }
+        
 	public int getAttack() {
-		return P_attack;
+		return attack;
 	}
 
 	public int getPv() {
 		return Pv;
 	}
 
-	public void setHp(int hp) {
-		this.Pv = Pv;
-	}
+	 
+	
 
 	
 	public int xpos() {
@@ -91,4 +82,16 @@ private final int Pv;
 	public int ypos() {
 		return ypos;
 	}
-}
+         public void rendu(Graphics2D contexte) {
+        try {
+            BufferedImage tileset = ImageIO.read(new File ("Z:/Mes documents/GitHub/Mordux/TP_JDBC/src/TileMapping/images"));
+            contexte.drawImage(tileset,  xpos, ypos, null);
+        } catch (IOException ex) {
+            Logger.getLogger(Goblin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+                
+        }
+        
+    } 
+

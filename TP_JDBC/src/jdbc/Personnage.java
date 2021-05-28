@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import java.io.File;
 
 /**
  *
@@ -70,7 +71,7 @@ public void miseAJour() {
     }
 public void rendu(Graphics2D contexte) {
         try {
-            BufferedImage Skin = ImageIO.read(getClass().getResource("images/"+this.Base_Donnee.getSkin(Pseudo)+".png"));
+            BufferedImage Skin = ImageIO.read(new File ("Z:/Mes documents/GitHub/Mordux/TP_JDBC/src/jdbc/images/"+this.Base_Donnee.getSkin(Pseudo)+".png"));
             contexte.drawImage(Skin, this.getX( ), this.getY(), null);
         } catch (IOException ex) {
             Logger.getLogger(Carte.class.getName()).log(Level.SEVERE, null, ex);

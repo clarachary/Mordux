@@ -16,11 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 
-/**
- * Exemple de classe carte
- *
- * @author guillaume.laurent
- */
+
 public class Carte {
 
     private int largeur = 20;
@@ -75,7 +71,7 @@ public class Carte {
         for (int l = 0; l <11; l++) {
             for (int c = 0; c < 16; c++) {
                 try {
-                        BufferedImage tileset = ImageIO.read(getClass().getResource("images/tileSetMinecraft32x32.png"));
+                        BufferedImage tileset = ImageIO.read(new File ("Z:/Mes documents/GitHub/Mordux/TP_JDBC/src/jdbc/images/tileSetMinecraft32x32.png"));
                         BufferedImage uneTuile = tileset.getSubimage(c*32, l*32, tailleTuile, tailleTuile);
                         //System.out.println(l);
                         //System.out.println(c);
