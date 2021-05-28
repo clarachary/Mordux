@@ -27,7 +27,7 @@ public class FenetreDeJeuGUI extends javax.swing.JFrame implements ActionListene
     private Jeu jeu;
     private Timer timer;
     private SQL Mordux= new SQL("20202021_s2_vs1_tp1_mordux");
-
+    private javax.swing.JLabel jLabel1;
     /**
      * Creates new form NewJFrame
      */
@@ -35,10 +35,12 @@ public class FenetreDeJeuGUI extends javax.swing.JFrame implements ActionListene
         initComponents();
 
         // Creation du buffer pour l'affichage du jeu et recuperation du contexte graphique
-        this.buffer = new BufferedImage(this.jLabel1.getWidth(), this.jLabel1.getHeight(), BufferedImage.TYPE_INT_ARGB);
+        int largeur =this.jLabel1.getWidth()+640;
+        int hauteur =this.jLabel1.getHeight()+640;
+        this.buffer = new BufferedImage(largeur, hauteur, BufferedImage.TYPE_INT_ARGB);
         jLabel1.setIcon(new ImageIcon(this.buffer));
         this.contexteBuffer = this.buffer.createGraphics();
-
+        System.out.println("this.jLabel1.getWidth()= "+this.jLabel1.getWidth()+"; this.jLabel1.getHeight() ="+ this.jLabel1.getHeight());
         // Creation du jeu
         this.jeu = new Jeu(Mordux);
 
@@ -185,7 +187,7 @@ public class FenetreDeJeuGUI extends javax.swing.JFrame implements ActionListene
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    
     // End of variables declaration//GEN-END:variables
 
 

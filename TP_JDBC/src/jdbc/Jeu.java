@@ -18,7 +18,7 @@ public class Jeu {
     
      
     public Jeu(SQL Base_Donnee) {        
-        this.carte = new Carte("Carte");
+        this.carte = new Carte("Carte4");
         this.Base_Donnee=Base_Donnee;
         this.Joueur1=new Personnage(Base_Donnee);
     }

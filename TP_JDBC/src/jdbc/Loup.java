@@ -10,13 +10,20 @@ package jdbc;
  * @author kthierry
  */
 public class Loup extends Monstre {
-
-public Loup(){
-    this.attack="Croque"
+    
+   Protected BufferedImage sprite;
+    protected double x, y;
+    public Loup() {
+        try {
+            this.sprite = ImageIO.read(getClass().getResource("F:\\info\\Sprites\Loup_crop.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Loup.class.getName()).log(Level.SEVERE , null, ex);
+        }     
+    this.attack="Croque";
     this.skin="Loup";
     this.x=0;
     this.y=0;
 }
 }
-    
+   
 
